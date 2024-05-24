@@ -10,6 +10,38 @@ How many customers are there (y).
 Before your final group by you should have the product of those two queries (x*y).  */
 
 
+-- WITH vendor_products AS (
+--     SELECT 
+--         vi.vendor_id,
+--         v.vendor_name,
+--         vi.product_id,
+--         p.product_name,
+--         vi.original_price
+--     FROM 
+--         vendor_inventory vi
+--     CROSS JOIN 
+--         vendor v ON vi.vendor_id = v.vendor_id
+--     CROSS JOIN 
+--         product p ON vi.product_id = p.product_id
+-- ),
+-- customers_list AS (
+--     SELECT 
+--         customer_id
+--     FROM 
+--         customer
+-- )
+-- SELECT 
+--     vp.vendor_name,
+--     vp.product_name,
+--     SUM(5 * vp.original_price) AS total_revenue
+-- FROM 
+--     vendor_products vp
+-- CROSS JOIN 
+--     customers_list c
+-- GROUP BY 
+--     vp.vendor_name, 
+--     vp.product_name;
+
 
 -- INSERT
 /*1.  Create a new table "product_units". 
