@@ -38,7 +38,20 @@ Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
 Highlight at least two differences between it and your ERD. Would you change anything in yours?
 
 ```
-Your answer...
+key differences:
+ - Normalization and Complexity:
+ The AdventureWorks schema is highly normalized and includes a significant number of tables to manage specific aspects of data (e.g., Product, ProductCategory, ProductDescription, ProductModel)
+My Bookstore ERDis less normalized. E.g, the Book table in the bookstore ERD includes attributes like Title, Author, ISBN, Price, and StockQuantity all within one table, which simplifies the schema but can lead to redundancy
+
+- data granularity and tracking
+AdventureWorks tracks detailed information related to sales and production, including tables for SalesOrderDetail, SalesOrderHeader, SalesTerritory, ProductInventory, and WorkOrder. This level of detail allows to track  all transactions and inventory management.
+My ERD use fewer tables sales tracking. In my case sales details are captured in a single Sales table linked to Orders and Books, but without separate tables for sales territories or detailed inventory tracking.
+
+As a result I'd add few tables to increase normalization.
+- Create a separate Author table to store author details and link it to the Book table through a foreign key.
+- Add ProductCategory table to categorize books and link it to the Book table
+
+Also we can separate Sales table in to 2 tables:SalesOrder, SalesOrderDetail to improve sales transactions management
 ```
 
 # Criteria
